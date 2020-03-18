@@ -15,7 +15,12 @@ var words = [
 // Write a function uniqueArray that receives an array of words as a parameter. And remove the duplicates, and return a new array. 
 // (indexOf)
 
+let uniqueArray=words.filter((a,b)=>words.indexOf(a)===b);
+console.log(uniqueArray);
 
+//  Using SET
+
+uniqueArray = [...new Set(words)];
 
 var words2 = [
   'machine',
@@ -30,8 +35,12 @@ var words2 = [
 
 // Write a function doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
 
-
-
+function doesWordExist(arr,word){
+  return arr.includes(word)?true:false;
+ }
+ doesWordExist(words2,'trouble'); // Will return true
+ doesWordExist(words2,'Trouble'); // Will return false
+ doesWordExist(words2,'hello');   // Will return false
 
 var words3 = [
   'machine',
@@ -49,7 +58,14 @@ var words3 = [
 
 
 // Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
-
+words3.reduce((acc,cv)=>{
+  if(acc[cv]){
+    acc[cv]=acc[cv]+1;
+  } else{
+    acc[cv]=1;
+  }
+  return acc;
+},{})
 
 
 
@@ -91,7 +107,14 @@ const fruitBasket = [
   'fig'
 ];
 
-
+fruitBasket.reduce((acc,cv)=>{
+  if(acc[cv]){
+    acc[cv]=acc[cv]+1;
+  } else{
+    acc[cv]=1;
+  }
+  return acc;
+},{})
 
 // Bonus Question (Solve only if you have time)
 var matrix = [
